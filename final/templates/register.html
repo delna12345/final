@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+     <style>
+        /* Custom CSS to make the button oval */
+        .oval-button {
+            border-radius: 50px; /* Adjust the value to make it more or less oval */
+            padding: 10px 20px; /* Adjust padding for better appearance */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center oval-button">
+        <div class="col-md-6 ">
+            <div class="card mt-5">
+                <div class="card-header" style="background-color: darkblue">
+                    <h2>Register Form</h2>
+                </div>
+                <div class="card-body" style="background-color: blue">
+                    <form action="register" method="post">
+                        {% csrf_token %}
+                        <div class="form-group oval-button" >
+                            <label for="name">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="form-group oval-button">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                         <div class="form-group oval-button">
+                            <label for="password">Confirm Password:</label>
+                            <input type="password" class="form-control" id="password1" name="password1" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary oval-button">Register</button>
+                    </form>
+                    {% for msg in messages %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Add Bootstrap JavaScript and jQuery links if needed -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

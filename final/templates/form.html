@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information</title>
+    <!-- Include Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card mt-5">
+                <div class="card-header" style="background-color: deeppink">
+                    <h2>Student Information</h2>
+                </div>
+                <div class="card-body" style="background-color: hotpink; ">
+                    <form action="submit_form" method="post">
+                        {% csrf_token %}
+                        <div class="form-group form-inline">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control mx-auto" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label for="dob">Date of Birth:</label>
+                            <input type="date" class="form-control mx-auto" id="dob" name="dob" required>
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label for="age">Age:</label>
+                            <input type="number" class="form-control mx-auto" id="age" name="age" required>
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label>Gender:</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="male" name="gender" value="male">
+                                    <label class="form-check-label" for="male">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="female" name="gender" value="female">
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="other" name="gender" value="other">
+                                    <label class="form-check-label" for="other">Other</label>
+                                </div>
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" class="form-control mx-auto" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control mx-auto" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label for="address">Address:</label>
+                            <textarea class="form-control mx-auto" id="address" name="address" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group form-inline">
+                            <label for="department">Department:</label>
+                            <select class="form-control mx-auto" id="department" name="department">
+                                <option value="media">Media</option>
+                                <option value="communication">Communication</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="business">Business</option>
+                                <option value="photography">Photography</option>
+                                <option value="css">Css</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label for="courses">Courses:</label>
+                            <select class="form-control mx-auto" id="courses" name="courses">
+                                <option value="media streaming">Media Streaming</option>
+                                <option value="digital marketing">Digital Marketing</option>
+                                <option value="business world">Business World</option>
+                                <option value="media technology">Media Technology</option>
+                                <option value="communications">Communications</option>
+                                <option value="business ethics">Business Ethics</option>
+                                <option value="photography">Photography</option>
+                                <option value="web development">Web Development</option>
+                                <option value="learn html css">Learn Html Css</option>
+                                <option value="social media">Social Media</option>
+                                <option value="digital arts">Digital Arts</option>
+                            </select>
+                        </div>
+
+
+
+                        <button type="submit" class="btn btn-primary" style="background-color: deeppink; margin-bottom: 10px;">Submit</button>
+                        <a href="{% url 'logout' %}" class="btn btn-secondary" style="background-color: deeppink; margin-bottom: 10px;">Logout</a>
+
+                    </form>
+
+                    {% for msg in messages %}
+                        {{ msg }}
+                        <a  href="{% url 'logout' %}" >Home Page</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Include Bootstrap JavaScript and jQuery links if needed -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
